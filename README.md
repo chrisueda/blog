@@ -4,7 +4,6 @@ Based of the egghead.io creator MDX Blog Starter Project.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/872d595c-1bdd-4d1e-a93d-13b288b47228/deploy-status)](https://app.netlify.com/sites/cocky-benz-92944a/deploys)
 
-
 ---
 
 ## egghead.io creator MDX Blog Starter Project
