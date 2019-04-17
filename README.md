@@ -1,4 +1,13 @@
-# egghead.io creator MDX Blog Starter Project
+# Blog of Christopher Ueda
+
+Based of the egghead.io creator MDX Blog Starter Project.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/872d595c-1bdd-4d1e-a93d-13b288b47228/deploy-status)](https://app.netlify.com/sites/cocky-benz-92944a/deploys)
+
+
+---
+
+## egghead.io creator MDX Blog Starter Project
 
 This is based on Robin Wieruch's https://github.com/rwieruch/gatsby-mdx-blog-starter-project
 
@@ -6,7 +15,6 @@ Lot's of nice pieces are also borrowed from Jason Lengstorf https://github.com/j
 
 A starter project in [Gatsby.js](https://www.gatsbyjs.org/) with [MDX](https://github.com/mdx-js/mdx).
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/eggheadio/gatsby-starter-egghead-blog)
 
 ## Features
 
