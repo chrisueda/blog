@@ -7,6 +7,7 @@ import Link from '../components/Link'
 import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
 import theme from '../../config/theme'
+import website from '../../config/website'
 
 const Hero = () => (
   <section
@@ -35,7 +36,7 @@ const Hero = () => (
           max-width: ${rhythm(15)};
         `}
       >
-        Your blog says the things you want to say.
+        {website.siteDescription}
       </h1>
     </Container>
     <div
