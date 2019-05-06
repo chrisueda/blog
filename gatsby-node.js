@@ -31,6 +31,28 @@ const createPosts = (createPage, createRedirect, edges) => {
       },
     })
   })
+
+  // Categoriy pages:
+  const categoryTemplate = path.resolve('src/templates/categories.js')
+  let categories = []
+  // Iterate through each post, putting all found tags into `tags`
+  _.each(edges, edge => {
+    if (_.get(edge, 'node.fields.categories')) {
+      categories = categories.concat(edge.node.fields.categories)
+    }
+  })
+  // Eliminate duplicate categories
+  categories = _.uniq(categories)
+  // Make tag pages
+  categories.forEach(category => {
+    createPage({
+      path: `/categories/${_.kebabCase(category)}/`,
+      component: categoryTemplate,
+      context: {
+        category,
+      },
+    })
+  })
 }
 
 exports.createPages = ({ actions, graphql }) =>
@@ -54,6 +76,7 @@ exports.createPages = ({ actions, graphql }) =>
               title
               slug
               date
+              categories
             }
             code {
               scope

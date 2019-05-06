@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import _ from 'lodash'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
@@ -6,6 +7,7 @@ import SEO from 'components/SEO'
 import { css } from '@emotion/core'
 import Container from 'components/Container'
 import Layout from '../components/Layout'
+import Link from '../components/Link'
 import { fonts } from '../lib/typography'
 import Share from '../components/Share'
 import config from '../../config/website'
@@ -19,6 +21,25 @@ export default function Post({
   const date = mdx.frontmatter.date
   const title = mdx.frontmatter.title
   const banner = mdx.frontmatter.banner
+  const bannerCredit = mdx.frontmatter.bannerCredit
+  const categories = mdx.frontmatter.categories
+
+  const CategoryList = ({ list = [] }) => (
+    <Fragment>
+      <ul>
+        {' '}
+        Posted under:
+        {list.map(category => {
+          category = _.camelCase(category)
+          return (
+            <li key={category}>
+              <Link to={`/categories/${category}`}>{category}</Link>
+            </li>
+          )
+        })}
+      </ul>
+    </Fragment>
+  )
 
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
@@ -58,6 +79,22 @@ export default function Post({
             {author && <span>—</span>}
             {date && <h3>{date}</h3>}
           </div>
+          <div
+            css={css`
+              display: flex;
+              justify-content: center;
+              ul {
+                margin: 0;
+                font-size: 15px;
+              }
+              li {
+                display: inline-block;
+                margin: 0 5px;
+              }
+            `}
+          >
+            <CategoryList list={categories || []} />
+          </div>
           {banner && (
             <div
               css={css`
@@ -71,12 +108,21 @@ export default function Post({
                 sizes={banner.childImageSharp.fluid}
                 alt={site.siteMetadata.keywords.join(', ')}
               />
+              <p
+                css={css`
+                  text-align: center;
+                  margin: 5px 0px;
+                  font-size: 15px;
+                  opacity: 0.6;
+                `}
+              >
+                {bannerCredit}
+              </p>
             </div>
           )}
           <br />
           <MDXRenderer>{mdx.code.body}</MDXRenderer>
         </Container>
-        {/* <SubscribeForm /> */}
       </article>
       <Container noVerticalPadding>
         <Share
@@ -100,6 +146,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         author
+        categories
         banner {
           childImageSharp {
             fluid(maxWidth: 900) {
@@ -107,6 +154,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        bannerCredit
         slug
         keywords
       }
