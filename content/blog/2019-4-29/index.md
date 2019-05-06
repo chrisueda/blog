@@ -4,7 +4,7 @@ date: 2019-04-29
 title: 'Using iOS Shortcuts App and Pythonista'
 categories: ["ios", "python"]
 description: 'Using iOS Shortcuts App and Pythonista'
-published: true
+published: false
 banner: './david-clode-460835-unsplash.jpg'
 bannerCredit: 'Photo by David Clode on Unsplash'
 
