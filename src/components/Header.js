@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import theme from '../../config/theme'
 
 import Container from './Container'
+import Menu from './Menu'
 
 const Header = ({
   dark,
@@ -60,15 +61,7 @@ const Header = ({
             }
           `}
         >
-          {/*
-          <Link
-            to="/blog"
-            activeClassName="active"
-            aria-label="View blog page"
-          >
-            Blog
-          </Link>
-          */}
+          <Menu />
         </div>
       </nav>
     </Container>
