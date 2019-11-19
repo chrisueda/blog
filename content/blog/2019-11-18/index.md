@@ -6,6 +6,11 @@ categories: ['vim']
 description: 'Just some things I Googled today'
 published: true
 ---
+
+## Topics
+
+Insert Normal Mode and pasting from insert normal mode.
+
 ## Vim Commands
 
 `<C-o>` - Insert Normal mode - Perform one command then go back to insert mode.
