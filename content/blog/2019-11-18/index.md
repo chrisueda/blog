@@ -1,5 +1,5 @@
 ---
-slug: 2019-11-18
+slug: 2019-11-18-what-i-learned-today
 date: 2019-11-18
 title: 'What I learned today'
 categories: ['vim']
